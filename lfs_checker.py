@@ -33,11 +33,11 @@ class DiscordManager:
         self,
         added_locks: List[GitLock],
         removed_locks: List[GitLock],
-    ) -> None:
+    ):
         self.added_locks = added_locks
         self.removed_locks = removed_locks
 
-    def publish(self):
+    def publish(self) -> None:
         webhook = DiscordWebhook(url=WEBHOOK_URL)
         embed = DiscordEmbed()
 
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     glm = GitLockManager()
     print("Repo loaded")
 
-    retry_time = 5 * 60
+    retry_time = 1 * 60
 
     run = True
     while run:
